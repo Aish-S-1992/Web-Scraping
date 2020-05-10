@@ -4,7 +4,7 @@ rm(list = ls())
 #Clearing the screen
 cat("\014")
 
-#Installing the 
+#Installing the required files
 library(downloader)
 
 library(tidyr)
@@ -13,13 +13,13 @@ library(rvest)
 
 library(dplyr)
 
-#Select the URL you want to scrape
+#Selecting the URL you want to scrape
 url <- 'https://www.futwiz.com/en/fifa20/players'
 
 #We first create a html document from a URL 
 webpage <- read_html(url)
 
-#Selecting parts of the HTML document using CSS selector 
+#Selecting parts of the HTML document using CSS selector
 table <- html_nodes(webpage,'.col-12')
 
 #Now we select all the text inside the tag
@@ -54,7 +54,7 @@ html_nodes(css = "img") %>%
 #Setting wd for storing the images 
 setwd("C:/Users/aishwarya.sharma/OneDrive - insidemedia.net/Dell Lattitude - 5300/Aishwarya/Office Training/Images")
 
-#For downloading the images on the website
+#For downloading images on the website
 for (i in 0:(length(ImageURL)-1)){
   j = i + 1 
   download(paste0("https://www.futwiz.com/",ImageURL[j]),paste0("test",j,".jpg"), mode =  "wb" )
